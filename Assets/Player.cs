@@ -2,12 +2,26 @@
 using System.Collections;
 
 [RequireComponent (typeof (PlayerController))]
-public class Player : MonoBehaviour {
+public class Player : MonoBehaviour
+
+
+{
 
 	public float moveSpeed = 5;
 
-	Camera viewCamera;
+    PlayerController controller;
+    Camera viewCamera;
+
+    void Start()
+    {
+        controller = GetComponent<PlayerController>();
+        viewCamera = Camera.main;
+    }
+    /*
+     
+
 	PlayerController controller;
+	Camera viewCamera;
 	
 	void Start () {
 		controller = GetComponent<PlayerController> ();
@@ -29,5 +43,6 @@ public class Player : MonoBehaviour {
 			//Debug.DrawRay(ray.origin,ray.direction * 100,Color.red);
 			controller.LookAt(point);
 		}
-	}
+	*/
+}
 }
