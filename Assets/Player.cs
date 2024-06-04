@@ -7,19 +7,6 @@ public class Player : MonoBehaviour
 
 {
 
-	public float moveSpeed = 5;
-
-    PlayerController controller;
-    Camera viewCamera;
-
-    void Start()
-    {
-        controller = GetComponent<PlayerController>();
-        viewCamera = Camera.main;
-    }
-    /*
-     
-
 	PlayerController controller;
 	Camera viewCamera;
 	
@@ -43,6 +30,6 @@ public class Player : MonoBehaviour
 			//Debug.DrawRay(ray.origin,ray.direction * 100,Color.red);
 			controller.LookAt(point);
 		}
-	*/
+
 }
 }
