@@ -2,17 +2,8 @@
 using System.Collections;
 
 public class Gun : MonoBehaviour
-{
-
-
+{   
 	public Transform muzzle;
-    public Projectile projectile;
-    public float msBetweenShots = 100;
-    public float muzzleVelocity = 35;
-
-    float nextShotTime;
-    /*
-	 * public Transform muzzle;
 	public Projectile projectile;
 	public float msBetweenShots = 100;
 	public float muzzleVelocity = 35;
@@ -27,6 +18,4 @@ public class Gun : MonoBehaviour
 			newProjectile.SetSpeed (muzzleVelocity);
 		}
 	}
-
-	*/
 }
