@@ -3,8 +3,7 @@ using System.Collections;
 
 [RequireComponent (typeof (PlayerController))]
 [RequireComponent (typeof (GunController))]
-public class Player : MonoBehaviour
-{
+public class Player : MonoBehaviour {
 
 	public float moveSpeed = 5;
 
@@ -40,5 +39,4 @@ public class Player : MonoBehaviour
 			gunController.Shoot();
 		}
 	}
-
 }
