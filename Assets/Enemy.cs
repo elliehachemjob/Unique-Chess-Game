@@ -1,14 +1,28 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent (typeof (NavMeshAgent))]
+[RequireComponent (typeof (UnityEngine.AI.NavMeshAgent))]
 public class Enemy : MonoBehaviour {
 
-	NavMeshAgent pathfinder;
+
+
+    UnityEngine.AI.NavMeshAgent pathfinder;
+    Transform target;
+
+    void Start()
+    {
+        pathfinder = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        target = GameObject.FindGameObjectWithTag("Player").transform;
+
+        StartCoroutine(UpdatePath());
+    }
+
+
+    /* UnityEngine.AI.NavMeshAgent pathfinder;
 	Transform target;
 
 	void Start () {
-		pathfinder = GetComponent<NavMeshAgent> ();
+		pathfinder = GetComponent<UnityEngine.AI.NavMeshAgent> ();
 		target = GameObject.FindGameObjectWithTag ("Player").transform;
 
 		StartCoroutine (UpdatePath ());
@@ -27,4 +41,6 @@ public class Enemy : MonoBehaviour {
 			yield return new WaitForSeconds(refreshRate);
 		}
 	}
+
+	*/
 }
