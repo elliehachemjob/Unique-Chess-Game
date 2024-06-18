@@ -10,7 +10,7 @@ public class Projectile : MonoBehaviour {
 		speed = newSpeed;
 	}
 	
-	void Update () {
+	/* void Update () {
 		float moveDistance = speed * Time.deltaTime;
 		CheckCollisions (moveDistance);
 		transform.Translate (Vector3.forward * moveDistance);
@@ -29,5 +29,5 @@ public class Projectile : MonoBehaviour {
 	void OnHitObject(RaycastHit hit) {
 		print (hit.collider.gameObject.name);
 		GameObject.Destroy (gameObject);
-	}
+	} */
 }
