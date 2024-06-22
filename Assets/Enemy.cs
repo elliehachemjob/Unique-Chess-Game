@@ -7,18 +7,6 @@ public class Enemy : MonoBehaviour {
 
 
     UnityEngine.AI.NavMeshAgent pathfinder;
-    Transform target;
-
-    void Start()
-    {
-        pathfinder = GetComponent<UnityEngine.AI.NavMeshAgent>();
-        target = GameObject.FindGameObjectWithTag("Player").transform;
-
-        StartCoroutine(UpdatePath());
-    }
-
-
-    /* UnityEngine.AI.NavMeshAgent pathfinder;
 	Transform target;
 
 	void Start () {
@@ -42,5 +30,5 @@ public class Enemy : MonoBehaviour {
 		}
 	}
 
-	*/
+	
 }

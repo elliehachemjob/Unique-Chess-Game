@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-	/* Vector3 velocity;
+	Vector3 velocity;
 	Rigidbody myRigidbody;
 
 	void Start () {
@@ -38,5 +38,5 @@ public class PlayerController : MonoBehaviour
 	public void FixedUpdate() {
 		myRigidbody.MovePosition (myRigidbody.position + velocity * Time.fixedDeltaTime);
 
-	} */
+	} 
 }
