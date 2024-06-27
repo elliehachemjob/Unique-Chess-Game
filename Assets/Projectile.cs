@@ -3,7 +3,23 @@ using System.Collections;
 
 public class Projectile : MonoBehaviour {
 
-	public LayerMask collisionMask;
+    public LayerMask collisionMask;
+    float speed = 10;
+    float damage = 1;
+
+    public void SetSpeed(float newSpeed)
+    {
+        speed = newSpeed;
+    }
+
+    void Update()
+    {
+        float moveDistance = speed * Time.deltaTime;
+        CheckCollisions(moveDistance);
+        transform.Translate(Vector3.forward * moveDistance);
+    }
+
+    /* public LayerMask collisionMask;
 	float speed = 10;
 	float damage = 1;
 
@@ -33,5 +49,5 @@ public class Projectile : MonoBehaviour {
 			damageableObject.TakeHit(damage, hit);
 		}
 		GameObject.Destroy (gameObject);
-	}
+	} */
 }
