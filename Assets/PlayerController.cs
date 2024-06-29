@@ -4,7 +4,15 @@ using System.Collections;
 [RequireComponent (typeof (Rigidbody))]
 public class PlayerController : MonoBehaviour {
 
-	Vector3 velocity;
+    Vector3 velocity;
+    Rigidbody myRigidbody;
+
+    void Start()
+    {
+        myRigidbody = GetComponent<Rigidbody>();
+    }
+
+    /* Vector3 velocity;
 	Rigidbody myRigidbody;
 
 	void Start () {
@@ -23,5 +31,5 @@ public class PlayerController : MonoBehaviour {
 	void FixedUpdate() {
 		myRigidbody.MovePosition (myRigidbody.position + velocity * Time.fixedDeltaTime);
 
-	}
+	} */
 }
