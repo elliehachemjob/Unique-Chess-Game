@@ -35,8 +35,8 @@ public class MapGenerator : MonoBehaviour {
 		mapCentre = new Coord ((int)mapSize.x / 2, (int)mapSize.y / 2);
 
 		string holderName = "Generated Map";
-		if (transform.FindChild (holderName)) {
-			DestroyImmediate (transform.FindChild (holderName).gameObject);
+		if (transform.Find (holderName)) {
+			DestroyImmediate (transform.Find (holderName).gameObject);
 		}
 		
 		Transform mapHolder = new GameObject (holderName).transform;

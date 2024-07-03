@@ -1,13 +1,33 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent (typeof (NavMeshAgent))]
+[RequireComponent (typeof (UnityEngine.AI.NavMeshAgent))]
 public class Enemy : LivingEntity {
 
-	public enum State {Idle, Chasing, Attacking};
+    public enum State { Idle, Chasing, Attacking };
+    State currentState;
+
+    UnityEngine.AI.NavMeshAgent pathfinder;
+    Transform target;
+    LivingEntity targetEntity;
+    Material skinMaterial;
+
+    Color originalColour;
+
+    float attackDistanceThreshold = .5f;
+    float timeBetweenAttacks = 1;
+    float damage = 1;
+
+    float nextAttackTime;
+    float myCollisionRadius;
+    float targetCollisionRadius;
+
+    bool hasTarget;
+
+    /* public enum State {Idle, Chasing, Attacking};
 	State currentState;
 
-	NavMeshAgent pathfinder;
+	UnityEngine.AI.NavMeshAgent pathfinder;
 	Transform target;
 	LivingEntity targetEntity;
 	Material skinMaterial;
@@ -26,7 +46,7 @@ public class Enemy : LivingEntity {
 	
 	protected override void Start () {
 		base.Start ();
-		pathfinder = GetComponent<NavMeshAgent> ();
+		pathfinder = GetComponent<UnityEngine.AI.NavMeshAgent> ();
 		skinMaterial = GetComponent<Renderer> ().material;
 		originalColour = skinMaterial.color;
 
@@ -112,5 +132,5 @@ public class Enemy : LivingEntity {
 			}
 			yield return new WaitForSeconds(refreshRate);
 		}
-	}
+	} */
 }
