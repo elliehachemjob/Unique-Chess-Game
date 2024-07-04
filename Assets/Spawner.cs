@@ -3,7 +3,18 @@ using System.Collections;
 
 public class Spawner : MonoBehaviour {
 
-	public Wave[] waves;
+
+    public Wave[] waves;
+    public Enemy enemy;
+
+    Wave currentWave;
+    int currentWaveNumber;
+
+    int enemiesRemainingToSpawn;
+    int enemiesRemainingAlive;
+    float nextSpawnTime;
+
+    /* public Wave[] waves;
 	public Enemy enemy;
 
 	Wave currentWave;
@@ -52,5 +63,5 @@ public class Spawner : MonoBehaviour {
 		public int enemyCount;
 		public float timeBetweenSpawns;
 	}
-
+ */
 }

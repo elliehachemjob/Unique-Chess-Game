@@ -24,7 +24,7 @@ public class Enemy : LivingEntity {
 
     bool hasTarget;
 
-    /* public enum State {Idle, Chasing, Attacking};
+    It i/* public enum State {Idle, Chasing, Attacking};
 	State currentState;
 
 	UnityEngine.AI.NavMeshAgent pathfinder;
