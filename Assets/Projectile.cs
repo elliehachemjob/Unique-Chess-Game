@@ -3,7 +3,15 @@ using System.Collections;
 
 public class Projectile : MonoBehaviour {
 
-	public LayerMask collisionMask;
+    public LayerMask collisionMask;
+    float speed = 10;
+    float damage = 1;
+
+    float lifetime = 3;
+    float skinWidth = .1f;
+
+
+ /*    public LayerMask collisionMask;
 	float speed = 10;
 	float damage = 1;
 
@@ -53,5 +61,5 @@ public class Projectile : MonoBehaviour {
 			damageableObject.TakeDamage(damage);
 		}
 		GameObject.Destroy (gameObject);
-	}
+	}*/
 }
