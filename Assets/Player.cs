@@ -5,7 +5,19 @@ using System.Collections;
 [RequireComponent (typeof (GunController))]
 public class Player : LivingEntity {
 
-	public float moveSpeed = 5;
+    Camera viewCamera;
+    PlayerController controller;
+    GunController gunController;
+
+    protected override void Start()
+    {
+        base.Start();
+        controller = GetComponent<PlayerController>();
+        gunController = GetComponent<GunController>();
+        viewCamera = Camera.main;
+    }
+
+    /* public float moveSpeed = 5;
 
 	Camera viewCamera;
 	PlayerController controller;
@@ -39,5 +51,5 @@ public class Player : LivingEntity {
 		if (Input.GetMouseButton(0)) {
 			gunController.Shoot();
 		}
-	}
+	} */
 }
