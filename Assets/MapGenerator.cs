@@ -3,8 +3,28 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class MapGenerator : MonoBehaviour {
-	
-	public Transform tilePrefab;
+
+    public Transform tilePrefab;
+    public Transform obstaclePrefab;
+    public Vector2 mapSize;
+
+    [Range(0, 1)]
+    public float outlinePercent;
+    [Range(0, 1)]
+    public float obstaclePercent;
+
+    List<Coord> allTileCoords;
+    Queue<Coord> shuffledTileCoords;
+
+    public int seed = 10;
+    Coord mapCentre;
+
+    void Start()
+    {
+        GenerateMap();
+    }
+
+   /*  public Transform tilePrefab;
 	public Transform obstaclePrefab;
 	public Vector2 mapSize;
 	
@@ -134,5 +154,5 @@ public class MapGenerator : MonoBehaviour {
 			return !(c1 == c2);
 		}
 
-	}
+	}*/ 
 }
