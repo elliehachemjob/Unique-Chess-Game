@@ -3,7 +3,20 @@ using System.Collections;
 
 public class GunController : MonoBehaviour {
 
-	public Transform weaponHold;
+
+    public Transform weaponHold;
+    public Gun startingGun;
+    Gun equippedGun;
+
+    void Start()
+    {
+        if (startingGun != null)
+        {
+            EquipGun(startingGun);
+        }
+    } 
+
+   /*  public Transform weaponHold;
 	public Gun startingGun;
 	Gun equippedGun;
 
@@ -25,5 +38,5 @@ public class GunController : MonoBehaviour {
 		if (equippedGun != null) {
 			equippedGun.Shoot();
 		}
-	}
+	} */
 }
