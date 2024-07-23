@@ -3,7 +3,26 @@ using System.Collections;
 
 public class GunController : MonoBehaviour {
 
-	public Transform weaponHold;
+
+    public Transform weaponHold;
+    public Gun[] allGuns;
+    Gun equippedGun;
+
+    void Start()
+    {
+    }
+
+    public void EquipGun(Gun gunToEquip)
+    {
+        if (equippedGun != null)
+        {
+            Destroy(equippedGun.gameObject);
+        }
+        equippedGun = Instantiate(gunToEquip, weaponHold.position, weaponHold.rotation) as Gun;
+        equippedGun.transform.parent = weaponHold;
+    }
+
+    /* public Transform weaponHold;
 	public Gun[] allGuns;
 	Gun equippedGun;
 
@@ -51,5 +70,5 @@ public class GunController : MonoBehaviour {
 			equippedGun.Reload();
 		}
 	}
-
+	*/
 }
