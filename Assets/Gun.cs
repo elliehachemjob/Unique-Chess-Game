@@ -3,7 +3,29 @@ using System.Collections;
 
 public class Gun : MonoBehaviour {
 
-	public enum FireMode {Auto, Burst, Single};
+
+    public enum FireMode { Auto, Burst, Single };
+    public FireMode fireMode;
+
+    public Transform[] projectileSpawn;
+    public Projectile projectile;
+    public float msBetweenShots = 100;
+    public float muzzleVelocity = 35;
+    public int burstCount;
+    public int projectilesPerMag;
+    public float reloadTime = .3f;
+
+    [Header("Recoil")]
+    public Vector2 kickMinMax = new Vector2(.05f, .2f);
+    public Vector2 recoilAngleMinMax = new Vector2(3, 5);
+    public float recoilMoveSettleTime = .1f;
+    public float recoilRotationSettleTime = .1f;
+
+    [Header("Effects")]
+    public Transform shell;
+    public Transform shellEjection;
+    public AudioClip shootAudio;
+  /*  public AudioClip reloadAudio; public enum FireMode {Auto, Burst, Single};
 	public FireMode fireMode;
 
 	public Transform[] projectileSpawn;
@@ -134,5 +156,5 @@ public class Gun : MonoBehaviour {
 	public void OnTriggerRelease() {
 		triggerReleasedSinceLastShot = true;
 		shotsRemainingInBurst = burstCount;
-	}
+	}*/
 }
