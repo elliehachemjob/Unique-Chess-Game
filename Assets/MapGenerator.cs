@@ -2,42 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class MapGenerator : MonoBehaviour
+public class MapGenerator : MonoBehaviour { 
 
-
-    public Map[] maps;
-public int mapIndex;
-
-public Transform tilePrefab;
-public Transform obstaclePrefab;
-public Transform mapFloor;
-public Transform navmeshFloor;
-public Transform navmeshMaskPrefab;
-public Vector2 maxMapSize;
-
-[Range(0, 1)]
-public float outlinePercent;
-
-public float tileSize;
-List<Coord> allTileCoords;
-Queue<Coord> shuffledTileCoords;
-Queue<Coord> shuffledOpenTileCoords;
-Transform[,] tileMap;
-
-Map currentMap;
-
-void Awake()
-{
-    FindObjectOfType<Spawner>().OnNewWave += OnNewWave;
-}
-
-void OnNewWave(int waveNumber)
-{
-    mapIndex = waveNumber - 1;
-    GenerateMap();
-}
-
-/* public Map[] maps;
+ public Map[] maps;
 	public int mapIndex;
 	
 	public Transform tilePrefab;
@@ -252,5 +219,5 @@ void OnNewWave(int waveNumber)
 			}
 		}
 		
-	} */
+	} 
 }
