@@ -2,9 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class MapGenerator : MonoBehaviour { 
-
- public Map[] maps;
+public class MapGenerator : MonoBehaviour {
+	
+	public Map[] maps;
 	public int mapIndex;
 	
 	public Transform tilePrefab;
@@ -50,8 +50,8 @@ public class MapGenerator : MonoBehaviour {
 
 		// Create map holder object
 		string holderName = "Generated Map";
-		if (transform.Find (holderName)) {
-			DestroyImmediate (transform.Find (holderName).gameObject);
+		if (transform.FindChild (holderName)) {
+			DestroyImmediate (transform.FindChild (holderName).gameObject);
 		}
 		
 		Transform mapHolder = new GameObject (holderName).transform;
@@ -219,5 +219,5 @@ public class MapGenerator : MonoBehaviour {
 			}
 		}
 		
-	} 
+	}
 }

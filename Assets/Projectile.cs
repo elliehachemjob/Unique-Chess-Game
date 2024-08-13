@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Projectile : MonoBehaviour {
 
-    public LayerMask collisionMask;
+	public LayerMask collisionMask;
 	public Color trailColour;
 	float speed = 10;
 	float damage = 1;
@@ -48,5 +48,5 @@ public class Projectile : MonoBehaviour {
 			damageableObject.TakeHit(damage, hitPoint, transform.forward);
 		}
 		GameObject.Destroy (gameObject);
-	} 
+	}
 }

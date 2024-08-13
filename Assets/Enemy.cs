@@ -1,15 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent (typeof (UnityEngine.AI.NavMeshAgent))]
+[RequireComponent (typeof (NavMeshAgent))]
 public class Enemy : LivingEntity {
-   
-     public enum State {Idle, Chasing, Attacking};
+
+	public enum State {Idle, Chasing, Attacking};
 	State currentState;
 
 	public ParticleSystem deathEffect;
+	public static event System.Action OnDeathStatic;
 
-	UnityEngine.AI.NavMeshAgent pathfinder;
+	NavMeshAgent pathfinder;
 	Transform target;
 	LivingEntity targetEntity;
 	Material skinMaterial;
@@ -27,7 +28,7 @@ public class Enemy : LivingEntity {
 	bool hasTarget;
 
 	void Awake() {
-		pathfinder = GetComponent<UnityEngine.AI.NavMeshAgent> ();
+		pathfinder = GetComponent<NavMeshAgent> ();
 		
 		if (GameObject.FindGameObjectWithTag ("Player") != null) {
 			hasTarget = true;
@@ -59,7 +60,8 @@ public class Enemy : LivingEntity {
 		}
 		startingHealth = enemyHealth;
 
-		skinMaterial = GetComponent<Renderer> ().sharedMaterial;
+		deathEffect.startColor = new Color (skinColour.r, skinColour.g, skinColour.b, 1);
+		skinMaterial = GetComponent<Renderer> ().material;
 		skinMaterial.color = skinColour;
 		originalColour = skinMaterial.color;
 	}
@@ -68,6 +70,9 @@ public class Enemy : LivingEntity {
 	{
 		AudioManager.instance.PlaySound ("Impact", transform.position);
 		if (damage >= health) {
+			if (OnDeathStatic != null) {
+				OnDeathStatic ();
+			}
 			AudioManager.instance.PlaySound ("Enemy Death", transform.position);
 			Destroy(Instantiate(deathEffect.gameObject, hitPoint, Quaternion.FromToRotation(Vector3.forward, hitDirection)) as GameObject, deathEffect.startLifetime);
 		}

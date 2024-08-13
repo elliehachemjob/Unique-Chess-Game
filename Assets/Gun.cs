@@ -3,8 +3,7 @@ using System.Collections;
 
 public class Gun : MonoBehaviour {
 
-
-   public AudioClip reloadAudio; public enum FireMode {Auto, Burst, Single};
+	public enum FireMode {Auto, Burst, Single};
 	public FireMode fireMode;
 
 	public Transform[] projectileSpawn;

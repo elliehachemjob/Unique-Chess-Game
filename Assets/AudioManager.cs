@@ -3,13 +3,13 @@ using System.Collections;
 
 public class AudioManager : MonoBehaviour {
 
-    public enum AudioChannel { Master, Sfx, Music };
+	public enum AudioChannel {Master, Sfx, Music};
 
-    public float masterVolumePercent { get; private set; }
-    public float sfxVolumePercent { get; private set; }
-    public float musicVolumePercent { get; private set; }
+	public float masterVolumePercent { get; private set; }
+	public float sfxVolumePercent { get; private set; }
+	public float musicVolumePercent { get; private set; }
 
-    AudioSource sfx2DSource;
+	AudioSource sfx2DSource;
 	AudioSource[] musicSources;
 	int activeMusicSourceIndex;
 
@@ -21,7 +21,6 @@ public class AudioManager : MonoBehaviour {
 	SoundLibrary library;
 
 	void Awake() {
-
 		if (instance != null) {
 			Destroy (gameObject);
 		} else {
@@ -112,5 +111,5 @@ public class AudioManager : MonoBehaviour {
 			musicSources [1-activeMusicSourceIndex].volume = Mathf.Lerp (musicVolumePercent * masterVolumePercent, 0, percent);
 			yield return null;
 		}
-	} 
+	}
 }

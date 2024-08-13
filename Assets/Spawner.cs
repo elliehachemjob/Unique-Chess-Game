@@ -2,8 +2,8 @@
 using System.Collections;
 
 public class Spawner : MonoBehaviour {
-    
-    public bool devMode;
+
+	public bool devMode;
 
 	public Wave[] waves;
 	public Enemy enemy;
