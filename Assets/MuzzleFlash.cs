@@ -3,7 +3,7 @@ using System.Collections;
 
 public class MuzzleFlash : MonoBehaviour {
 
-	public GameObject flashHolder;
+	/* public GameObject flashHolder;
 	public Sprite[] flashSprites;
 	public SpriteRenderer[] spriteRenderers;
 
@@ -26,5 +26,5 @@ public class MuzzleFlash : MonoBehaviour {
 
 	void Deactivate() {
 		flashHolder.SetActive (false);
-	}
+	 */
 }
