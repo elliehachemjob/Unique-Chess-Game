@@ -3,9 +3,28 @@ using System.Collections;
 
 public class AudioManager : MonoBehaviour {
 
-	public enum AudioChannel {Master, Sfx, Music};
 
-	public float masterVolumePercent { get; private set; }
+    public enum AudioChannel { Master, Sfx, Music };
+
+    public float masterVolumePercent { get; private set; }
+    public float sfxVolumePercent { get; private set; }
+    public float musicVolumePercent { get; private set; }
+
+    AudioSource sfx2DSource;
+    AudioSource[] musicSources;
+    int activeMusicSourceIndex;
+
+    public static AudioManager instance;
+
+    Transform audioListener;
+    Transform playerT;
+
+    SoundLibrary library;
+
+
+    public enum AudioChannel {Master, Sfx, Music};
+
+	/* public float masterVolumePercent { get; private set; }
 	public float sfxVolumePercent { get; private set; }
 	public float musicVolumePercent { get; private set; }
 
@@ -111,5 +130,5 @@ public class AudioManager : MonoBehaviour {
 			musicSources [1-activeMusicSourceIndex].volume = Mathf.Lerp (musicVolumePercent * masterVolumePercent, 0, percent);
 			yield return null;
 		}
-	}
+	 */
 }
