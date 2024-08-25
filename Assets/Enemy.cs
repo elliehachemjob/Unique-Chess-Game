@@ -2,9 +2,62 @@
 using System.Collections;
 
 [RequireComponent (typeof (UnityEngine.AI.NavMeshAgent))]
-public class Enemy : LivingEntity {
+public class Enemy : LivingEntity
 
-	public enum State {Idle, Chasing, Attacking};
+
+public enum State { Idle, Chasing, Attacking };
+State currentState;
+
+public ParticleSystem deathEffect;
+public static event System.Action OnDeathStatic;
+
+UnityEngine.AI.NavMeshAgent pathfinder;
+Transform target;
+LivingEntity targetEntity;
+Material skinMaterial;
+
+Color originalColour;
+
+float attackDistanceThreshold = .5f;
+float timeBetweenAttacks = 1;
+float damage = 1;
+
+float nextAttackTime;
+float myCollisionRadius;
+float targetCollisionRadius;
+
+bool hasTarget;
+
+void Awake()
+{
+    pathfinder = GetComponent<UnityEngine.AI.NavMeshAgent>();
+
+    if (GameObject.FindGameObjectWithTag("Player") != null)
+    {
+        hasTarget = true;
+
+        target = GameObject.FindGameObjectWithTag("Player").transform;
+        targetEntity = target.GetComponent<LivingEntity>();
+
+        myCollisionRadius = GetComponent<CapsuleCollider>().radius;
+        targetCollisionRadius = target.GetComponent<CapsuleCollider>().radius;
+    }
+}
+
+protected override void Start()
+{
+    base.Start();
+
+    if (hasTarget)
+    {
+        currentState = State.Chasing;
+        targetEntity.OnDeath += OnTargetDeath;
+
+        StartCoroutine(UpdatePath());
+    }
+}
+
+	/* public enum State {Idle, Chasing, Attacking};
 	State currentState;
 
 	public ParticleSystem deathEffect;
@@ -51,6 +104,8 @@ public class Enemy : LivingEntity {
 			StartCoroutine (UpdatePath ());
 		}
 	}
+
+
 
 	public void SetCharacteristics(float moveSpeed, int hitsToKillPlayer, float enemyHealth, Color skinColour) {
 		pathfinder.speed = moveSpeed;
@@ -147,5 +202,5 @@ public class Enemy : LivingEntity {
 			}
 			yield return new WaitForSeconds(refreshRate);
 		}
-	}
+	} */
 }
