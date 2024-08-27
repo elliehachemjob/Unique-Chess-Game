@@ -3,10 +3,11 @@ using System.Collections;
 
 public class MuzzleFlash : MonoBehaviour {
 
-	/* public GameObject flashHolder;
-	public Sprite[] flashSprites;
-	public SpriteRenderer[] spriteRenderers;
+    public Sprite[] flashSprites;
+    public SpriteRenderer[] spriteRenderers;
 
+    public GameObject flashHolder;
+	
 	public float flashTime;
 
 	void Start() {
@@ -24,7 +25,9 @@ public class MuzzleFlash : MonoBehaviour {
 		Invoke ("Deactivate", flashTime);
 	}
 
-	void Deactivate() {
-		flashHolder.SetActive (false);
-	 */
+	void Deactivate()
+	{
+		flashHolder.SetActive(false);
+	}
+	 
 }
